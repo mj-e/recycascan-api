@@ -45,6 +45,10 @@ An apk version of the app can be downloaded from here to install on android devi
 
 - [Download](https://recycascan.herokuapp.com/)
 
+# App architecture
+
+![](./dataFlow.jpg)
+
 ## Built With
 
 * [MongoDB](https://www.mongodb.com/) 
