@@ -39,7 +39,7 @@ mongoose.connect('mongodb://user:password@ds055915.mlab.com:55915/recycascan', f
 });
 
 function addBins(done) {
-  logger.info('adding bins')
+  logger.info('adding bins');
   async.eachSeries(binData, function (bin, cb) {
     let binDoc = new BinDoc(bin);
     binDoc.save(function (err) {
@@ -50,12 +50,12 @@ function addBins(done) {
     });
   }, function (error) {
     if (error) return done(error);
-    return done(null)
-  })
+    return done(null);
+  });
 }
 
 function addCollections(done) {
-  logger.info('adding collections')
+  logger.info('adding collections');
   async.eachSeries(collectionData, function (collection, cb) {
     let collectionDoc = new CollectionDoc(collection);
     collectionDoc.save(function (err) {
@@ -66,12 +66,12 @@ function addCollections(done) {
     });
   }, function (error) {
     if (error) return done(error);
-    return done(null)
-  })
+    return done(null);
+  });
 }
 
 function addRecyclingCentres(done) {
-  logger.info('adding recycling centres')
+  logger.info('adding recycling centres');
   async.eachSeries(recyclingCentreData, function (centre, cb) {
     let recyclingCentreDoc = new RecyclingCentreDoc(centre);
     recyclingCentreDoc.save(function (err) {
@@ -82,12 +82,12 @@ function addRecyclingCentres(done) {
     });
   }, function (error) {
     if (error) return done(error);
-    return done(null)
-  })
+    return done(null);
+  });
 }
 
 function addPostcodes(done) {
-  logger.info('adding postcodes')
+  logger.info('adding postcodes');
   async.eachSeries(postcodeData, function (code, cb) {
     let postcodeDoc = new PostcodeDoc(code);
     postcodeDoc.save(function (err) {
@@ -98,22 +98,22 @@ function addPostcodes(done) {
     });
   }, function (error) {
     if (error) return done(error);
-    return done(null)
-  })
+    return done(null);
+  });
 }
 
 function addPackaging(done) {
-  logger.info('adding packaging')
-  async.eachSeries(packagingData, function (package, cb) {
-    let packagingDoc = new PackagingDoc(package);
+  logger.info('adding packaging');
+  async.eachSeries(packagingData, function (packages, cb) {
+    let packagingDoc = new PackagingDoc(packages);
     packagingDoc.save(function (err) {
       if (err) {
-        return cb(err)
+        return cb(err);
       }
       return cb();
-    })
+    });
   }, function (error) {
     if (error) return done(error);
-    return done(null)
-  })
+    return done(null);
+  });
 }

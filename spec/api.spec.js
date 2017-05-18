@@ -17,14 +17,14 @@ describe('API ROUTES', () => {
             mongoose.connection.db.dropDatabase();
         });
         saveTestData(() => {
-            done()
-        })
+            done();
+        });
     });
     after(done => {
         mongoose.connection.db.dropDatabase(() => {
             console.log('Test database dropped');
             done();
-        })
+        });
     });
     describe('GET all bins - /bins', () => {
         it('returns all the bins data', (done) => {

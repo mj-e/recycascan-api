@@ -9,16 +9,16 @@ const bins = [
 ];
 
 const packaging = [
-    new models.Packaging({ "packaging": "plastique", "material": "plastic" }),
-    new models.Packaging({ "packaging": "carton", "material": "paper" }),
-    new models.Packaging({ "packaging": "bottle-glass", "material": "glass" })
-]
+    new models.Packaging({ 'packaging': 'plastique', 'material': 'plastic' }),
+    new models.Packaging({ 'packaging': 'carton', 'material': 'paper' }),
+    new models.Packaging({ 'packaging': 'bottle-glass', 'material': 'glass' })
+];
 
 const postcodes = [
-    new models.Postcodes({ postcode: "M5", council: "Salford" }),
-    new models.Postcodes({ postcode: "M24", council: "Oldham" }),
-    new models.Postcodes({ postcode: "M60", council: "Manchester" })
-]
+    new models.Postcodes({ postcode: 'M5', council: 'Salford' }),
+    new models.Postcodes({ postcode: 'M24', council: 'Oldham' }),
+    new models.Postcodes({ postcode: 'M60', council: 'Manchester' })
+];
 
 const collections = [
     new models.Collections({
@@ -42,7 +42,7 @@ const collections = [
         year: 2017,
         bins: ['pink', 'brown']
     })
-]
+];
 
 const recyclingCentre = [
     new models.RecyclingCentres({
@@ -72,35 +72,35 @@ const recyclingCentre = [
 function saveBins(cb) {
     models.Bins.create(bins, (err) => {
         if (err) cb(err);
-        else cb()
+        else cb();
     });
 }
 
 function saveCollections(cb) {
     models.Collections.create(collections, (err) => {
         if (err) cb(err);
-        else cb()
+        else cb();
     });
 }
 
 function savePackaging(cb) {
     models.Packaging.create(packaging, (err) => {
         if (err) cb(err);
-        else cb()
+        else cb();
     });
 }
 
 function savePostcodes(cb) {
     models.Postcodes.create(postcodes, (err) => {
         if (err) cb(err);
-        else cb()
+        else cb();
     });
 }
 
 function saveRecyclingCentres(cb) {
     models.RecyclingCentres.create(recyclingCentre, (err) => {
         if (err) cb(err);
-        else cb()
+        else cb();
     });
 }
 
@@ -111,7 +111,7 @@ function saveTestData(cb) {
             console.log('Test data loaded successfully');
             cb(ids);
         }
-    })
+    });
 }
 
 module.exports = saveTestData;
