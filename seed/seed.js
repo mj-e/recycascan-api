@@ -1,3 +1,5 @@
+if (!process.env.NODE_ENV) process.env.NODE_ENV = 'dev';
+
 const mongoose = require('mongoose');
 const BinDoc = require('../models/bins');
 const binData = require('./data/bins.js');
@@ -12,10 +14,15 @@ const PackagingDoc = require('../models/packaging');
 const async = require('async');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
+const config = require('../config');
+const DB = config.DB[process.env.NODE_ENV] || process.env.DB;
 
-mongoose.connect('mongodb://user:password@ds055915.mlab.com:55915/recycascan', function (err) {
+mongoose.Promise = global.Promise;
+
+mongoose.connect(DB , function (err) {
   if (!err) {
     mongoose.connection.db.dropDatabase();
+    console.log(`Connected to the Database: ${DB}`);
     async.waterfall([
       addBins,
       addCollections,

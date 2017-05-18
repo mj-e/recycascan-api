@@ -10,9 +10,9 @@ const PORT = process.env.PORT || config.PORT[process.env.NODE_ENV];
 mongoose.Promise = global.Promise;
 mongoose.connect(db, function (err) {
   if (!err) {
-    console.log(`connected to the Database: ${db}`);
+    console.log(`Connected to the Database: ${db}`);
   } else {
-    console.log(`error connecting to the Database ${err}`);
+    console.log(`Error connecting to the Database ${err}`);
   }
 });
 
